@@ -6,7 +6,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <ImageBackground
       source={localImage}
-      style={styles.background}
+      style={styles.background}  
       resizeMode="cover"
     >
       <View style={styles.overlay}>
