@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FeelingScreen from '../screens/FeelingScreen';
 import ChatScreen from '../screens/ChatScreen';
 import AboutScreen from '../screens/AboutScreen';
+import RecitationScreen from '../screens/RecitationScreen'; 
 
 const Tab = createBottomTabNavigator();
 
@@ -13,7 +14,7 @@ export default function MainTabs() {
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#0D1B2A', 
+          backgroundColor: '#0D1B2A',
           borderTopWidth: 0,
           paddingBottom: 6,
           paddingTop: 6,
@@ -24,7 +25,7 @@ export default function MainTabs() {
           fontWeight: '600',
         },
         tabBarActiveTintColor: '#00B4D8',
-        tabBarInactiveTintColor: '#90A4AE', 
+        tabBarInactiveTintColor: '#90A4AE',
         tabBarIcon: ({ color, size }) => {
           let iconName;
 
@@ -32,6 +33,8 @@ export default function MainTabs() {
             iconName = 'happy-outline';
           } else if (route.name === 'Chat') {
             iconName = 'chatbubble-ellipses-outline';
+          } else if (route.name === 'Recitation') {
+            iconName = 'musical-notes-outline';
           } else if (route.name === 'About') {
             iconName = 'information-circle-outline';
           }
@@ -42,6 +45,7 @@ export default function MainTabs() {
     >
       <Tab.Screen name="Feelings" component={FeelingScreen} />
       <Tab.Screen name="Chat" component={ChatScreen} />
+      <Tab.Screen name="Recitation" component={RecitationScreen} /> 
       <Tab.Screen name="About" component={AboutScreen} />
     </Tab.Navigator>
   );
