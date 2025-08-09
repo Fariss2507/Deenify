@@ -13,7 +13,7 @@ export default function MainTabs() {
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#0D1B2A', // Dark bluish-black
+          backgroundColor: '#0D1B2A', 
           borderTopWidth: 0,
           paddingBottom: 6,
           paddingTop: 6,
@@ -23,8 +23,8 @@ export default function MainTabs() {
           fontSize: 13,
           fontWeight: '600',
         },
-        tabBarActiveTintColor: '#00B4D8', // Bluish active color
-        tabBarInactiveTintColor: '#90A4AE', // Muted gray-blue for inactive
+        tabBarActiveTintColor: '#00B4D8',
+        tabBarInactiveTintColor: '#90A4AE', 
         tabBarIcon: ({ color, size }) => {
           let iconName;
 
