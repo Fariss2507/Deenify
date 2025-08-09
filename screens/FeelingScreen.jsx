@@ -51,7 +51,7 @@ export default function FeelingScreen() {
                 <Text style={styles.backText}>← Back</Text>
               </TouchableOpacity>
               {/* <Text>You are feeling {emotion}</Text> */}
-              <Text style={styles.subHeading}>Here’s something from the Quran:</Text>
+              <Text style={styles.subHeading}>Here’s what Allah says in the Quran:</Text>
               {selected.ayahs.map((a, i) => (
                 <View key={i} style={styles.ayahItem}>
                   <Text style={styles.arabic}>{a.ar}</Text>
