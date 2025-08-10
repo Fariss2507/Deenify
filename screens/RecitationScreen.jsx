@@ -15,6 +15,7 @@ export default function RecitationScreen() {
   const [selectedReciter, setSelectedReciter] = useState(reciters[0]);
   const [sound, setSound] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [audioLoading, setAudioLoading] = useState(false); 
 
   useEffect(() => {
     axios.get('https://api.alquran.cloud/v1/surah')
@@ -41,13 +42,17 @@ export default function RecitationScreen() {
       });
     }
 
+    setAudioLoading(true); 
+
     const audioUrl = `https://cdn.islamic.network/quran/audio-surah/128/${selectedReciter.identifier}/${surahNumber}.mp3`;
 
     const newSound = new Sound(audioUrl, null, (error) => {
       if (error) {
         console.log('Error loading audio:', error);
+        setAudioLoading(false);
         return;
       }
+      setAudioLoading(false); 
       newSound.play(() => {
         setIsPlaying(false);
       });
@@ -69,12 +74,11 @@ export default function RecitationScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Quran Recitation</Text>
 
-      
       <Text style={styles.infoText}>
-        Just press once and wait for a few seconds:)
+        Just press once and wait for a few seconds :)
       </Text>
 
-    
+     
       <View style={styles.reciterContainer}>
         {reciters.map(r => (
           <TouchableOpacity
@@ -90,14 +94,18 @@ export default function RecitationScreen() {
         ))}
       </View>
 
-     
       {isPlaying && (
         <TouchableOpacity style={styles.stopButton} onPress={stopAudio}>
           <Text style={styles.stopButtonText}>Stop Recitation</Text>
         </TouchableOpacity>
       )}
 
-     
+  
+      {audioLoading && (
+        <ActivityIndicator size="large" color="#45A29E" style={{ marginBottom: 10 }} />
+      )}
+
+    
       {loading ? (
         <ActivityIndicator size="large" color="#6CA6CD" />
       ) : (
