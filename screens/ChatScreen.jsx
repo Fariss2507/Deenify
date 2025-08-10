@@ -93,7 +93,7 @@ const ChatScreen = () => {
             { color: isDark ? '#4FC3F7' : '#0A0F1E' },
           ]}
         >
-          Ask the Islamic Scholar
+          Ask anything related to Islam 
         </Text>
 
        
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   heading: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: '700',
     textAlign: 'center',
     marginVertical: 12,
